@@ -23,22 +23,22 @@ build:
 #     script:
 #         - echo "Deploying"
 #         - ls -lah
-#         - scp -rp ./dist/* someone@some_domain:some_dir
+#         - scp -rp ./dist/* $SERVER_QA_USER@$SERVER_QA_DOMAIN:SERVER_QA_DIRECTORY
 #     only:
 #         - /^release*.*/
 #         - master
 #     environment:
 #         name: qa
-#         url: https://domain
+#         url: https://$SERVER_QA_DOMAIN
 
 # deploy-production:
 #     stage: deploy
 #     script:
 #         - echo "Deploying"
 #         - ls -lah
-#         - scp -rp ./dist/* user@domain:~/public_html
+#         - scp -rp ./dist/* $SERVER_PROD_USER@$SERVER_PROD_DOMAIN:SERVER_PROD_DIRECTORY
 #     only:
 #         - master
 #     environment:
 #         name: production
-#         url: https://domain
+#         url: https://SERVER_PROD_DOMAIN
