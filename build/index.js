@@ -1,47 +1,74 @@
-const fs = require("fs");
-const gulp = require("gulp");
-const path = require("path");
-const runSequence = require("run-sequence");
-// @TODO Move this outta here
-const browserSync = require("browser-sync").create();
+import babel from "gulp-babel";
+import concat from "gulp-concat";
+import del from "del";
+import gulp from "gulp";
+import sass from "gulp-sass";
+import pug from "gulp-pug";
+import uglify from "gulp-uglify";
+import path from "path";
+import browserSync from "browser-sync";
 
-const config = {
-  paths: {
-    src: path.resolve(__dirname, "../src"),
-    dist: path.resolve(__dirname, "../dist")
-  }
+const server = browserSync.create();
+
+const paths = {
+  src: "./src",
+  dest: "./dist"
 };
 
-require("./tasks/serve.gulp")(gulp, config, {
-  browserSync
+const clean = () => del(["dist"]);
+
+const scripts = () =>
+  gulp
+    .src(`${paths.src}/resources/scripts/*.js`, { sourcemaps: true })
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(concat("index.min.js"))
+    .pipe(gulp.dest(`${paths.dest}/assets/js`));
+
+const compileSass = () =>
+  gulp
+    .src(`${paths.src}/resources/sass/*.sass`)
+    .pipe(sass())
+    .pipe(gulp.dest(`${paths.dest}/assets/css`));
+
+const compilePug = () =>
+  gulp
+    .src(`${paths.src}/*.pug`)
+    .pipe(pug())
+    .pipe(gulp.dest(`${paths.dest}`));
+
+const reload = done => {
+  server.reload();
+  done();
+};
+
+const serve = done => {
+  server.init({
+    server: {
+      baseDir: paths.dest
+    }
+  });
+  done();
+};
+
+const buildTasks = [clean, scripts, compilePug, compileSass, serve];
+
+gulp.task("watch", () => {
+  gulp.watch(
+    `${paths.src}/resources/sass/*.sass`,
+    gulp.series(compileSass, reload)
+  );
+  gulp.watch(
+    `${paths.src}/resources/pug/*.pug`,
+    gulp.series(compilePug, reload)
+  );
+  gulp.watch(
+    `${paths.src}/resources/scripts/*.js`,
+    gulp.series(scripts, reload)
+  );
+  return gulp.series(...buildTasks);
 });
-require("./tasks/sass.gulp")(gulp, config, {
-  browserSync
-});
-require("./tasks/minify-css.gulp")(gulp, config);
-require("./tasks/minify-html.gulp")(gulp, config);
-require("./tasks/copy-images.gulp")(gulp, config);
-require("./tasks/copy-fonts.gulp")(gulp, config);
-require("./tasks/clean-dist.gulp")(gulp, config);
-require("./tasks/pug.gulp")(gulp, config, browserSync.reload);
 
-let buildTasks = [];
+const dev = gulp.series(...buildTasks, "watch");
 
-if (fs.existsSync(config.paths.dist)) {
-  console.log("dist exists");
-  buildTasks.push("clean-dist");
-}
-
-buildTasks.push(["pug", "sass", "copy-images", "copy-fonts"]);
-
-// Development
-gulp.task(
-  "default",
-  gulp.series("pug", "sass", "copy-images", "copy-fonts", "serve")
-);
-
-// More tasks for prod...
-buildTasks.push(["minify-html", "minify-css"]);
-
-// Production
-gulp.task("build", gulp.series(buildTasks));
+export default dev;
