@@ -30,7 +30,7 @@ const compileSass = () =>
 	gulp
 		.src(`${paths.src}/resources/sass/main.sass`)
 		.pipe(plumber())
-		.on('error', function(e) {
+		.on('error', function (e) {
 			console.error(e)
 			this.emit('end')
 		})
@@ -48,6 +48,12 @@ const reload = done => {
 	done()
 }
 
+const copyImages = () => gulp.src(
+	[`${paths.src}/resources/images/**/*.png`,
+	`${paths.src}/resources/images/**/*.jpg`],
+)
+	.pipe(gulp.dest(`${paths.dest}/assets/images`))
+
 const serve = done => {
 	server.init({
 		server: {
@@ -57,10 +63,11 @@ const serve = done => {
 	done()
 }
 
-const buildTasks = [clean, scripts, compilePug, compileSass, serve]
+const buildTasks = [clean, scripts, compilePug, compileSass, copyImages, serve]
 
 gulp.task('watch', () => {
 	gulp.watch(`./src/resources/sass/*.sass`, gulp.series(compileSass, reload))
+	gulp.watch(`./src/resources/images/*`, gulp.series(copyImages, reload))
 	gulp.watch(`./src/**/*.pug`, gulp.series(compilePug, reload))
 	gulp.watch(`./src/resources/scripts/*.js`, gulp.series(scripts, reload))
 	return gulp.series(...buildTasks)
