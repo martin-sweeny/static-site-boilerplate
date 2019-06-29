@@ -1,9 +1,6 @@
 {
-	"editor.renderIndentGuides": false,
-	"editor.insertSpaces": false,
-	"editor.tabSize": 2,
-	"editor.useTabStops": true,
-	"sassFormat.indent": "t",
-	"editor.formatOnSave": true,
-	"editor.formatOnPaste": true
+	"files.exclude": {
+		".cache": true,
+		"node_modules": true
+	}
 }
