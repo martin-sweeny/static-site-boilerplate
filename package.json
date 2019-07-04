@@ -1,45 +1,46 @@
 {
-  "name": "static-site-boilerplate",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby and TS",
-  "version": "0.1.0",
-  "author": "Martin Sweeny <martin@wiseweb.solutions>",
-  "dependencies": {
-    "@emotion/core": "^10.0.14",
-    "@emotion/styled": "^10.0.14",
-    "gatsby": "^2.10.4",
-    "gatsby-image": "^2.2.3",
-    "gatsby-plugin-emotion": "^4.1.0",
-    "gatsby-plugin-manifest": "^2.2.0",
-    "gatsby-plugin-offline": "^2.2.0",
-    "gatsby-plugin-react-helmet": "^3.1.0",
-    "gatsby-plugin-sharp": "^2.2.1",
-    "gatsby-plugin-typescript": "^2.1.0",
-    "gatsby-source-filesystem": "^2.1.0",
-    "gatsby-transformer-sharp": "^2.2.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "typescript": "^3.5.2"
-  },
-  "devDependencies": {
-    "@types/react-helmet": "^5.0.8",
-    "prettier": "^1.18.2"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://git.appserver.wiseweb.dev/martin.sweeny/static-site-boilerplate"
-  }
+	"name": "static-site-boilerplate",
+	"private": true,
+	"description": "A simple starter to get up and developing quickly with Gatsby and TS",
+	"version": "0.1.0",
+	"author": "Martin Sweeny <martin@wiseweb.solutions>",
+	"dependencies": {
+		"@emotion/core": "^10.0.14",
+		"@emotion/styled": "^10.0.14",
+		"gatsby": "^2.10.4",
+		"gatsby-image": "^2.2.3",
+		"gatsby-plugin-emotion": "^4.1.0",
+		"gatsby-plugin-manifest": "^2.2.0",
+		"gatsby-plugin-offline": "^2.2.0",
+		"gatsby-plugin-react-helmet": "^3.1.0",
+		"gatsby-plugin-sharp": "^2.2.1",
+		"gatsby-plugin-typescript": "^2.1.0",
+		"gatsby-source-filesystem": "^2.1.0",
+		"gatsby-transformer-sharp": "^2.2.0",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-helmet": "^5.2.1",
+		"typescript": "^3.5.2"
+	},
+	"devDependencies": {
+		"@types/react-helmet": "^5.0.8",
+		"prettier": "^1.18.2",
+		"ts-node": "^8.3.0"
+	},
+	"keywords": [
+		"gatsby"
+	],
+	"license": "MIT",
+	"scripts": {
+		"build": "gatsby build",
+		"develop": "gatsby develop",
+		"format": "prettier --write src/**/*.{js,jsx}",
+		"start": "npm run develop",
+		"serve": "gatsby serve",
+		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://git.appserver.wiseweb.dev/martin.sweeny/static-site-boilerplate"
+	}
 }
