@@ -23,7 +23,10 @@
 		"typescript": "^3.5.2"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^8.0.0",
+		"@commitlint/config-conventional": "^8.0.0",
 		"@types/react-helmet": "^5.0.8",
+		"husky": "^3.0.0",
 		"prettier": "^1.18.2",
 		"ts-node": "^8.3.0"
 	},
@@ -42,5 +45,10 @@
 	"repository": {
 		"type": "git",
 		"url": "https://git.appserver.wiseweb.dev/martin.sweeny/static-site-boilerplate"
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
 	}
 }
