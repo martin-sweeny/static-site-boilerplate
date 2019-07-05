@@ -1,33 +1,18 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
 import React from 'react'
 
+import * as styles from './header.styles'
+
 const Header: React.FC<Props> = ({ siteTitle = '' }) => (
-	<header
-		style={{
-			background: `rebeccapurple`,
-			marginBottom: `1.45rem`,
-		}}
-	>
-		<div
-			style={{
-				margin: `0 auto`,
-				maxWidth: 960,
-				padding: `1.45rem 1.0875rem`,
-			}}
-		>
-			<h1 style={{ margin: 0 }}>
-				<Link
-					to="/"
-					style={{
-						color: `white`,
-						textDecoration: `none`,
-					}}
-				>
-					{siteTitle}
-				</Link>
+	<styles.Header>
+		<div>
+			<h1>
+				<Link to="/">{siteTitle}</Link>
 			</h1>
 		</div>
-	</header>
+	</styles.Header>
 )
 
 type Props = {
