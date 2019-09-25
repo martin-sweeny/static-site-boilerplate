@@ -1,0 +1,44 @@
+lint:
+  extends:
+    - .profile
+    - .install
+  stage: prebuild
+  script:
+    - yarn lint:report
+  artifacts:
+    name: eslint-report
+    expire_in: 1 week
+    when: always
+    paths:
+      - eslint-report.html
+
+jest:
+  extends:
+    - .profile
+    - .install
+  stage: prebuild
+  coverage: '/All files.*\s([\d\.]+)/'
+  script:
+    - yarn test:ci
+  artifacts:
+    name: coverage-report
+    expire_in: 1 week
+    when: always
+    paths:
+      - coverage
+      - junit.xml
+    reports:
+      junit:
+        - junit.xml
+
+type check:
+  extends:
+    - .profile
+    - .install
+  stage: prebuild
+  script:
+    - yarn --no-progress
+    - yarn run types:check
+  cache:
+    paths:
+      - node_modules/

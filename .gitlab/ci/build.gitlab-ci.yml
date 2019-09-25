@@ -1,0 +1,13 @@
+build site:
+    stage: build
+    script:
+        - yarn --no-progress
+        - yarn build
+    cache:
+        paths:
+          - node_modules/
+    artifacts:
+        expire_in: 1 week
+        when: always
+        paths:
+            - public

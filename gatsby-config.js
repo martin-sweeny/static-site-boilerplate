@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
 	siteMetadata: {
 		title: `Martin's Gatsby Starter`,
@@ -21,8 +23,8 @@ module.exports = {
 				name: `gatsby-starter-default`,
 				short_name: `starter`,
 				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				background_color: `#fff`,
+				theme_color: `#fff`,
 				display: `minimal-ui`,
 				// This path is relative to the root of the site.
 				icon: `src/images/gatsby-icon.png`,
@@ -30,5 +32,23 @@ module.exports = {
 		},
 		`gatsby-plugin-emotion`,
 		`gatsby-plugin-typescript`,
+		`gatsby-plugin-typescript-checker`,
+		{
+			resolve: `gatsby-plugin-alias-imports`,
+			options: {
+				alias: {
+					'@': path.resolve(__dirname, 'src'),
+				},
+				extensions: []
+			}
+		},
+		{
+			resolve: "gatsby-plugin-react-svg",
+			options: {
+				rule: {
+					include: /\.svg$/ // See below to configure properly
+				}
+			}
+		}
 	],
 }

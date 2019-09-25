@@ -1,0 +1,5 @@
+install dependencies:
+  stage: setup
+  extends: .install
+  script:
+    - yarn --no-progress
