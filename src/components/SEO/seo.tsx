@@ -79,7 +79,7 @@ const SEO: React.FC<Props> = ({
 type Props = {
 	description?: string
 	lang?: string
-	meta?: {}[]
+	meta?: HTMLMetaElement[]
 	title: string
 }
 
