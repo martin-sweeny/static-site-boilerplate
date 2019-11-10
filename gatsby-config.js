@@ -39,16 +39,16 @@ module.exports = {
 				alias: {
 					'@': path.resolve(__dirname, 'src'),
 				},
-				extensions: []
-			}
+				extensions: [],
+			},
 		},
 		{
-			resolve: "gatsby-plugin-react-svg",
+			resolve: 'gatsby-plugin-react-svg',
 			options: {
 				rule: {
-					include: /\.svg$/ // See below to configure properly
-				}
-			}
-		}
+					include: /\.svg$/,
+				},
+			},
+		},
 	],
 }

@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"author": "Martin Sweeny <martin@wiseweb.solutions>",
 	"engines": {
-		"node": "12.4"
+		"node": "11"
 	},
 	"dependencies": {
 		"@emotion/core": "^10.0.14",
@@ -68,7 +68,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "gatsby build",
-		"develop": "gatsby develop",
+		"develop": "gatsby develop --host 0.0.0.0",
 		"lint:report": "eslint --ext .tsx,.ts --format html --output-file ./eslint-report.html ./src",
 		"lint": "eslint --ext .tsx,.ts ./src",
 		"format": "prettier --write src/**/*.{js,jsx}",
@@ -85,6 +85,8 @@
 	},
 	"husky": {
 		"hooks": {
+			"pre-commit": "yarn test",
+			"pre-push": "yarn test",
 			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
 		}
 	}
