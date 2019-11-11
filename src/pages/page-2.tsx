@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/Layout/layout'
-import SEO from '../components/SEO/seo'
+import Layout from '../components/Layout/Layout'
+import SEO from '../components/SEO/SEO'
 
-const SecondPage: React.FC<{}> = () => (
+const SecondPage: React.FC<{}> = (): JSX.Element => (
 	<Layout>
 		<SEO title="Page two" />
 		<h1>Hi from the second page</h1>

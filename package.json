@@ -8,6 +8,7 @@
 		"node": "11"
 	},
 	"dependencies": {
+		"@babel/plugin-transform-typescript": "^7.7.2",
 		"@emotion/core": "^10.0.14",
 		"@emotion/styled": "^10.0.14",
 		"@types/react-responsive": "^3.0.3",
@@ -25,8 +26,8 @@
 		"gatsby-plugin-typescript-checker": "^1.1.1",
 		"gatsby-source-filesystem": "^2.1.0",
 		"gatsby-transformer-sharp": "^2.2.0",
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
 		"react-helmet": "^5.2.1",
 		"react-responsive": "^8.0.1",
 		"typescript": "^3.5.2"
@@ -68,7 +69,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "gatsby build",
-		"develop": "gatsby develop --host 0.0.0.0",
+		"develop": "gatsby develop",
 		"lint:report": "eslint --ext .tsx,.ts --format html --output-file ./eslint-report.html ./src",
 		"lint": "eslint --ext .tsx,.ts ./src",
 		"format": "prettier --write src/**/*.{js,jsx}",

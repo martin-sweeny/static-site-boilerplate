@@ -6,7 +6,9 @@ parser: "@typescript-eslint/parser"
 plugins:
   - "react"
   - "@typescript-eslint"
+  - "prettier"
 extends:
+  - "eslint:recommended"
   - "plugin:react/recommended"
   - "plugin:@typescript-eslint/recommended"
   - "prettier/@typescript-eslint"
@@ -16,4 +18,7 @@ parserOptions:
   sourceType: "module"
 settings:
   react:
+    pragma: "React"
     version: "detect"
+rules:
+  "react/prop-types": 0

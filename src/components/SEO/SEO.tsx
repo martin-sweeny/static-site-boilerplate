@@ -9,27 +9,14 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO: React.FC<Props> = ({
+export const PureSEO = ({
 	description = ``,
 	lang = `en`,
 	meta = [],
 	title = ``,
-}) => {
-	const { site } = useStaticQuery(
-		graphql`
-			query {
-				site {
-					siteMetadata {
-						title
-						description
-						author
-					}
-				}
-			}
-		`
-	)
-
-	const metaDescription = description || site.siteMetadata.description
+	...metaData
+}): JSX.Element => {
+	const metaDescription = description
 
 	return (
 		<Helmet
@@ -37,7 +24,7 @@ const SEO: React.FC<Props> = ({
 				lang,
 			}}
 			title={title}
-			titleTemplate={`%s | ${site.siteMetadata.title}`}
+			titleTemplate={`%s | ${title}`}
 			meta={[
 				{
 					name: `description`,
@@ -61,7 +48,7 @@ const SEO: React.FC<Props> = ({
 				},
 				{
 					name: `twitter:creator`,
-					content: site.siteMetadata.author,
+					content: metaData.author,
 				},
 				{
 					name: `twitter:title`,
@@ -76,7 +63,38 @@ const SEO: React.FC<Props> = ({
 	)
 }
 
-type Props = {
+const SEO: React.FC<Props> = ({
+	description = ``,
+	lang = `en`,
+	meta = [],
+	title = ``,
+}): JSX.Element => {
+	const { site } = useStaticQuery(
+		graphql`
+			query {
+				site {
+					siteMetadata {
+						title
+						description
+						author
+					}
+				}
+			}
+		`
+	)
+
+	return (
+		<PureSEO
+			{...site.siteMetadata}
+			description={description}
+			lang={lang}
+			meta={meta}
+			title={title}
+		/>
+	)
+}
+
+interface Props {
 	description?: string
 	lang?: string
 	meta?: HTMLMetaElement[]

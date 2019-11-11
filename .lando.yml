@@ -1,33 +1,30 @@
-name: static-site
+name: gatsby
 
 proxy:
   appserver:
-    - website.lndo.site:8000
+    - gatsby.lndo.site
 
 services:
   appserver:
     type: node:11
     globals:
-      gatsby-cli: latest
       yarn: latest
-    port:
-      - 8000
-    run:
-      - echo "Installing Gatsby with yarn"
-      - yarn
-
-events:
-  post-start:
-    - appserver: yarn build
+    build:
+      - echo "\nClearing old node_modules..." && rm -rf node_modules && echo "Done!"
+      - echo "\nInstalling Gatsby with yarn" && yarn
+    command:
+      - yarn develop -H 0.0.0.0 -p 80
 
 tooling:
-  gatsby:
-    service: appserver
   node:
     service: appserver
   npm:
+    cmd: Nope, try `lando yarn` instead.
     service: appserver
   npx:
     service: appserver
   yarn:
+    service: appserver
+  gatsby:start:
+    cmd: yarn develop -H 0.0.0.0 -p 80
     service: appserver
