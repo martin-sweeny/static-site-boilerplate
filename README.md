@@ -16,7 +16,7 @@
 > Source code for generic static websites
 
 Built with:<br/>
-[Gatsby](https://www.gatsbyjs.org/) | [React](https://reactjs.org/) | [Jest](https://jestjs.io/) | [Typescript](https://www.typescriptlang.org/) | [Gitlab](https://about.gitlab.com/)
+[Gatsby](https://www.gatsbyjs.org/) | [React](https://reactjs.org/) | [Jest](https://jestjs.io/) | [Typescript](https://www.typescriptlang.org/) | [Gitlab](https://about.gitlab.com/) | [Lando](https://lando.dev)
 
 Developed by [wiseweb.solutions](https://wiseweb.solutions) ❤️
 
@@ -25,6 +25,24 @@ Developed by [wiseweb.solutions](https://wiseweb.solutions) ❤️
 ---
 
 ## Development
+
+### Installation
+
+1. Clone the repo or download a given commit
+1. Run `lando start`
+   - You'll probably want to run `lando logs -f` to keep up with how the build is coming along
+1. ???
+1. Profit
+
+> **NOTE:** If you are using Lando (which you should be), then use `lando yarn` instead of local `yarn`
+
+#### Using in your own project
+
+You'll want to replace
+
+- the remotes in git with your new project's repo location
+- the `name` and the `proxy` settings in `.lando.yml`
+- the `name` and `description` in `package.json`
 
 ### Code Style
 

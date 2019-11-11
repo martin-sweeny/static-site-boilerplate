@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+.emotion-0 {
+  background: rebeccapurple;
+  margin-bottom: 1.45rem;
+}
+
+.emotion-0 > div {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
+}
+
+.emotion-0 h1 {
+  margin: 0;
+}
+
+.emotion-0 a {
+  color: #fff;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<header
+  className="emotion-0"
+>
+  <div>
+    <h1>
+      <a
+        href="/"
+      >
+        
+      </a>
+    </h1>
+  </div>
+</header>
+`;

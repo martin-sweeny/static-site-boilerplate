@@ -3,9 +3,9 @@ import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
 import React from 'react'
 
-import * as styles from './header.styles'
+import * as styles from './Header.styles'
 
-const Header: React.FC<Props> = ({ siteTitle = '' }) => (
+const Header: React.FC<Props> = ({ siteTitle = '' }): JSX.Element => (
 	<styles.Header>
 		<div>
 			<h1>
@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ siteTitle = '' }) => (
 	</styles.Header>
 )
 
-type Props = {
+interface Props {
 	siteTitle?: string
 }
 
