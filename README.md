@@ -1,11 +1,10 @@
 <!-- Here you can put your website's logo -->
-<!--
-<p align="center">
-  <a href="">
-    <img alt="" src="" height="60" />
-  </a>
-</p>
--->
+<center>
+  <img alt="Gatsby" src="https://www.vectorlogo.zone/logos/gatsbyjs/gatsbyjs-icon.svg" height="60" />
+  <img alt="React.js" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" height="60" />
+  <img alt="Typescript" src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" height="60" />
+  <img alt="Lando" src="https://docs.lando.dev/images/hero.png" height="60" />
+</center>
 
 ---
 
@@ -26,6 +25,8 @@ Developed by [wiseweb.solutions](https://wiseweb.solutions) ❤️
 
 ## Development
 
+We use [Lando](https://lando.dev) to take care of dev environment containerization, mostly of its ease of use. [Click here to install it.](https://lando.dev/download/)
+
 ### Installation
 
 1. Clone the repo or download a given commit
@@ -34,7 +35,7 @@ Developed by [wiseweb.solutions](https://wiseweb.solutions) ❤️
 1. ???
 1. Profit
 
-> **NOTE:** If you are using Lando (which you should be), then use `lando yarn` instead of local `yarn`
+> **NOTE:** Use `lando yarn` instead of local `yarn`. In fact, you can prepend most commands with `lando`, except `git`
 
 #### Using in your own project
 
