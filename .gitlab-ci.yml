@@ -1,4 +1,4 @@
-image: node:12.4.0
+image: node:11
 
 before_script:
   - date
