@@ -75,13 +75,13 @@ Simply running the following command is the bare minimum. It will prompt an
 interactive tool that'll ask what you want and generate it for you.
 
 ```
-yarn plop
+lando yarn plop
 ```
 
 You can also skip all that by just saying what you want:
 
 ```
-yarn plop component "new component"
+lando yarn plop component "new component"
 ```
 
 The name of the thing being plopped will be translated to `PascalCase` as per
