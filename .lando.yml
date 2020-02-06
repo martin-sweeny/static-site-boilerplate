@@ -10,10 +10,7 @@ services:
     globals:
       yarn: latest
     build:
-      - echo "\nClearing old node_modules..." && rm -rf node_modules && echo "Done!"
-      - echo "\nInstalling Gatsby with yarn" && yarn
-    command:
-      - yarn develop -H 0.0.0.0 -p 80
+      - yarn --force
 
 tooling:
   node:
@@ -25,6 +22,8 @@ tooling:
     service: appserver
   yarn:
     service: appserver
-  gatsby:start:
+    user: root
+  develop:
     cmd: yarn develop -H 0.0.0.0 -p 80
     service: appserver
+    user: root
