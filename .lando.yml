@@ -6,11 +6,16 @@ proxy:
 
 services:
   appserver:
-    type: node:11
+    type: node:13
     globals:
       yarn: latest
+    build-as-root:
+      - apk update && apk upgrade
+      # - apt install -y https://alpine.pkgs.org/edge/alpine-main-x86/git-2.26.2-r0.apk.html
     build:
       - yarn --force
+    overrides:
+      image: node:13-alpine
 
 tooling:
   node:

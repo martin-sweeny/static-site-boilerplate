@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"author": "Martin Sweeny <martin@wiseweb.solutions>",
 	"engines": {
-		"node": "11"
+		"node": "13"
 	},
 	"dependencies": {
 		"@babel/plugin-transform-typescript": "^7.7.2",
@@ -54,7 +54,7 @@
 		"enzyme-to-json": "^3.4.0",
 		"eslint-config-prettier": "^6.0.0",
 		"eslint-plugin-prettier": "^3.1.0",
-		"husky": "^3.0.0",
+		"husky": "^4.2.5",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^24.9.0",
 		"jest-cli": "^24.9.0",
